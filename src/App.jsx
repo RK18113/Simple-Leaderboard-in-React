@@ -4,6 +4,42 @@ import CategoryBtn from './components/CategoryBtn.jsx'
 import Winners from './components/Winners.jsx'
 import Participants from './components/Participants.jsx'
 
+function sortWinners(winners, rating){
+  for (let i = 0; i < rating.length; i++){
+    for (let j = 0; j < rating.length - i - 1; j++){
+      if (rating[j] < rating[j+1]){
+        const temp = rating[j];
+        rating[j] = rating[j+1];
+        rating[j+1] = temp;
+
+        const temp2 = winners[j];
+        winners[j] = winners[j+1];
+        winners[j+1] = temp2;
+      }
+    }
+  }
+}
+
+function sortParticipants(participants, rating, net){
+  for (let i = 0; i < rating.length; i++){
+    for (let j = 0; j < rating.length - i - 1; j++){
+      if (rating[j] < rating[j+1]){
+        const temp = rating[j];
+        rating[j] = rating[j+1];
+        rating[j+1] = temp;
+
+        const temp2 = participants[j];
+        participants[j] = participants[j+1];
+        participants[j+1] = temp2;
+        
+        const temp3 = net[j];
+        net[j] = net[j+1];
+        net[j+1] = temp2;
+      }
+    }
+  }
+}
+
 function App() {
   const [isOrganisation, setOrganisation] = useState(true);
 
@@ -18,25 +54,28 @@ function App() {
     setOrganisation(value)
   }
 
+  sortWinners(winners, winnerPoints);
+  sortParticipants(participants, participantPoints, isNetPositive);
+
   return (
-    <div className='bg-[#E7F0FE] h-screen'>  {/* remove the full screen style after completing */}
+    <div className='bg-[#E7F0FE] h-screen'>
       <Header></Header>
       <CategoryBtn isOrganisation={isOrganisation} handleOrganisation={handleOrganisation}></CategoryBtn>
 
       {/* for now its the same for both... it can be changed to display diffent for organisation and department */}
       {
         isOrganisation ? 
-        <div className='flex flex-wrap justify-around w-full lg:flex-nowrap sm:mt-10 lg:mt-[15vh]'>
+        <div className='flex flex-wrap justify-around w-full lg:flex-nowrap sm:mt-10 lg:mt-[10vh]'>
           <Winners winners={winners} winnerPoints={winnerPoints}></Winners>
           <Participants participants={participants} participantPoints={participantPoints} isNetPositive={isNetPositive}></Participants>
         </div> : 
-        <div className='flex flex-wrap justify-around w-full lg:flex-nowrap sm:mt-10 lg:mt-[15vh]'>
+        <div className='flex flex-wrap justify-around w-full lg:flex-nowrap sm:mt-10 lg:mt-[10vh]'>
           <Winners winners={winners} winnerPoints={winnerPoints}></Winners>          
           <Participants participants={participants} participantPoints={participantPoints} isNetPositive={isNetPositive}></Participants>
         </div>
       }
 
     </div>
-      )
+    )
 }
 export default App
