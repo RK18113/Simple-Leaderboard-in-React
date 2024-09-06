@@ -9,7 +9,7 @@ function Winners(props) {
     <div className='flex flex-wrap justify-center'>
         <div className='flex pr-3 pl-3 md:pr-0 md:pl-0 sm:w-[60%] lg:w-[65%] h-[30%] justify-around'>
             <img src={Winner2} className='h-[100px] w-[110px] sm:h-[120px] sm:w-[120px] lg:h-[150px] lg:w-[150px] relative top-[15vh] sm:top-[14vh] lg:top-[18vh]'/>
-            <img src={Winner1} className='h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] lg:h-[150px] lg:w-[150px] relative top-[4vh] sm:top-[3vh] lg:top-[7vh]'/>
+            <img src={Winner1} className='h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] lg:h-[150px] lg:w-[150px] relative top-[4vh] sm:top-[3vh] lg:top-[4vh]'/>
             <img src={Winner3} className='h-[100px] w-[110px] sm:h-[120px] sm:w-[120px] lg:h-[150px] lg:w-[150px] relative top-[15vh] sm:top-[14vh] lg:top-[18vh]'/>
         </div>
 
