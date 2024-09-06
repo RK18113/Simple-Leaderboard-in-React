@@ -5,12 +5,12 @@ import Negative from '../assets/Negative.svg'
 function Participants(props) {
 
   return (
-    <div className=' bg-[#3B5987] p-5 mt-5 lg:mt-0 lg:mr-10 w-full lg:w-[35vw] xl:w-[35vw] rounded-t-3xl lg:rounded-3xl'>
+    <div className=' bg-[#3B5987] p-5 mt-5 lg:mt-0 lg:mr-10 w-full lg:w-[35vw] xl:w-[35vw] rounded-t-3xl lg:rounded-3xl overflow-scroll overflow-x-hidden lg:h-[420px]'>
         {props.participants.map((person, index) => (
         index !== 0 ? (
           <div key={index} className='flex justify-between text-white border-t-2 pt-3 pb-3'>
             <div className='flex'>
-              <div className='border-white border-[3.5px] rounded-full pt-[8px] pb-[8px] pr-[10px] pl-[10px] text-[20px] font-medium font-inter'>
+              <div className='flex justify-center items-center border-white border-[3.5px] rounded-full text-[20px] h-[60px] w-[60px] font-medium font-inter'>
               #{index + 4}
               </div>
               <p className='flex items-center ml-3'>{person}</p>  
@@ -28,7 +28,7 @@ function Participants(props) {
         ) : (
           <div key={index} className='flex justify-between text-white pb-2'>
             <div className='flex'>
-              <div className='border-white border-[3.5px] rounded-full pt-[8px] pb-[8px] pr-[10px] pl-[10px] text-[20px] font-medium font-inter'>
+              <div className='flex justify-center items-center border-white border-[3.5px] rounded-full text-[20px] h-[60px] w-[60px] font-medium font-inter'>
               #{index + 4}
               </div>
               <p className='flex items-center ml-3'>{person}</p>  
